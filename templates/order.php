@@ -51,19 +51,19 @@
           
           <div class="col-sm-4 dashboard-one-s" onclick="location.href='order_pending'"  style="cursor: pointer;">
             <a href="order_pending"><h4>PENDING ORDERS COUNT</h4></a>
-            <p><?php if(isset($order_pnd)) echo count($order_pnd); ?></p>
+            <p id="pendng_orders_count"><?php if(isset($order_pnd)) echo count($order_pnd); ?></p>
           </div>
           <div class="col-sm-4 dashboard-two-s" onclick="location.href='order_processing'"  style="cursor: pointer;">
             <a href="order_processing"><h4>PROCESSING ORDERS COUNT</h4></a>
-            <p><?php if(isset($order_pro)) echo count($order_pro); ?></p>
+            <p id="order_inProcess_count"><?php if(isset($order_pro)) echo count($order_pro); ?></p>
           </div>
           <div class="col-sm-4 dashboard-three-s" onclick="location.href='order_completed'"  style="cursor: pointer;">
             <a href="order_completed" ><h4>COMPLETED ORDERS COUNT</h4></a>
-            <p><?php if(isset($order_cmp)) echo count($order_cmp); ?></p>     
+            <p  id="order_completed_count"><?php if(isset($order_cmp)) echo count($order_cmp); ?></p>     
           </div>
           <div class="col-sm-4 dashboard-four-s" onclick="location.href='order_canceled'"  style="cursor: pointer;">
             <a href="order_canceled"><h4>CANCELED ORDERS COUNT</h4></a>
-            <p><?php if(isset($order_cnc)) echo count($order_cnc); ?></p>
+            <p id="orders_canceled_count"><?php if(isset($order_cnc)) echo count($order_cnc); ?></p>
           </div>
           
         </div>
@@ -100,17 +100,17 @@
                    
                    <td>
                     <select name="status" onchange=" " class="mform-field form-control" required id="status">
-                      <option value="Order has been placed" <?php if($singleOrder->status=="Order has been placed") echo " selected" ?> > 
-                        <a>Order has been placed</a>
+                      <option value="1" <?php if($singleOrder->status=="1") echo " selected" ?> > 
+                        Order has been placed
                       </option> 
-                      <option value="Order in process" <?php if($singleOrder->status=="Order in process") echo " selected" ?> >
-                        <a>Order in process</a>
+                      <option value="2" <?php if($singleOrder->status=="2") echo " selected" ?> >
+                        Order in process
                       </option> 
-                      <option value="Order completed" <?php if($singleOrder->status=="Order completed") echo " selected" ?> >
-                        <a>Order completed</a>
+                      <option value="3" <?php if($singleOrder->status=="3") echo " selected" ?> >
+                        Order completed
                       </option> 
-                      <option value="Order canceled" <?php if($singleOrder->status=="Order canceled") echo " selected" ?> >
-                        <a>Order canceled</a>
+                      <option value="0" <?php if($singleOrder->status=="0") echo " selected" ?> >
+                        Order canceled
                       </option> 
                     </select> 
                    </td>
@@ -154,7 +154,23 @@
     <script type="text/javascript">
       $(document).ready(function() {
       $('#table1').DataTable();
+      setInterval(function(e){
+          $.ajax({
+            type: 'POST',
+            url: 'get_stats.php?query=orders',
+            success: function(data){
+              //console.log(data);
+              var obj = JSON.parse(data);
+              //console.log(obj);
+              $('#pendng_orders_count').html(obj.pending_orders);
+              $('#orders_canceled_count').html(obj.canceled_orders);
+              $('#order_inProcess_count').html(obj.order_inProcess);
+              $('#order_completed_count').html(obj.order_completed);
+            }
+          });
+      }, 3000);
 } );
-      </script>>
+      </script>
+
   </body>
   </html>
