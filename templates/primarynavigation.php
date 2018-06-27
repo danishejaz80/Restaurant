@@ -1,11 +1,11 @@
 <?php
-// use App\Models\User;
+use App\Models\User;
 ?>
 
 <div class="logo">
     <p><img class="center-block" alt="Site logo" src="images/logo.png" /></p>
-    <p class="text-center color-white" style="font-weight: bold;font-size: 20px;"> Hi Admin </p>
-    <?php //$id=$_SESSION['user']; //$user = User::where('id', $id)->first(); //echo $user->username; ?> 
+    <p class="text-center color-white" style="font-weight: bold;font-size: 20px;"> Hi <?php $id=$_SESSION['user']; $user = User::where('id', $id)->first(); echo $user->username; ?>  </p>
+    
 </div>
 
 <nav class="navbar navbar-defaul">

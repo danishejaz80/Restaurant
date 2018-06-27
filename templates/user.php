@@ -91,7 +91,7 @@
                                 <th>User Type</th>
                                 <th>Account Balance</th>
                                 <th>Borrow Amount</th>
-                                <th style="width: 85px">Action</th>
+                                <th >Action</th>
                             </tr>
                         </thead>
 
@@ -112,7 +112,7 @@
                                     <td><?php if(isset($user->type)) echo $user->type; ?></td>
                                     <td><?php if(isset($user->balance)) echo $user->balance; ?></td>
                                     <td><?php if(isset($user->borrow)) echo $user->borrow; ?></td>
-                                    <td>
+                                    <td colspan="5">
                                       <a title="Edit User" href="edituser/<?php if(isset($user->id)) echo $user->id ?>"><span class="glyphicon glyphicon-edit color-white" aria-hidden="true"></span></a>
                                       
                                       <a title="Delete User" href="userdelete/<?php if(isset($user->id)) echo $user->id ?>"><span class="glyphicon glyphicon-trash color-red mDelete" aria-hidden="true"></span></a>

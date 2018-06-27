@@ -51,7 +51,7 @@
         </li>
 
         <li role="presentation" class="second-background">
-            <a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>
+            <a href="../logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>
         </li>
 
         </ul>
