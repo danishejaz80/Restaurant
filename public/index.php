@@ -24,7 +24,8 @@ $app->map(['POST', 'GET'], '/dashboard','AuthController:postSignIn');
 $app->map(['POST', 'GET'], '/user','AuthController:viewUser');
 $app->map(['POST', 'GET'], '/user_pending','AuthController:viewPendingUsers');
 $app->map(['POST', 'GET'], '/user_active','AuthController:viewActiveUsers');
-
+$app->post('/get_stats', 'HomeController:index')->setName('get_stats');
+$app->get('/get_stats', 'HomeController:index')->setName('get_stats');
 
 $app->map(['POST', 'GET'], '/complaints','ComplaintController:viewComplaints');
 $app->map(['POST', 'GET'], '/adduser', 'AuthController:addUser');

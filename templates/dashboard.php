@@ -53,30 +53,30 @@
 				<div class="row dashboard-counter">
 					
       <div class="col-sm-4 dashboard-one" onclick="location.href='user'"  style="cursor: pointer;">
-			<a href="user"><h4>ALL USER COUNT</h4></a>
-			<p><?php if(isset($users)) echo count($users); ?></p>
+			<a href="user" ><h4>ALL USER COUNT</h4></a>
+			<p id="user_count"><?php if(isset($users)) echo count($users); ?></p>
 		  </div>
 		  <div class="col-sm-4 dashboard-two" onclick="location.href='menu'"  style="cursor: pointer;">
-			<a href="menu"><h4>MENU COUNT</h4></a>
+			<a href="menu" id="menu_count"><h4>MENU COUNT</h4></a>
 			<p><?php if(isset($menu)) echo count($menu); ?></p>
   		  </div>
 		  <div class="col-sm-4 dashboard-three" onclick="location.href='order'"  style="cursor: pointer;">
 			<a href="order" ><h4>TOTAL ORDERS PLACED</h4></a>
-			<p><?php if(isset($order)) echo count($order); ?></p>			
+			<p id="orders_count"><?php if(isset($order)) echo count($order); ?></p>			
 		  </div>
           
           <div class="col-sm-4 dashboard-three" onclick="location.href='user_pending'"  style="cursor: pointer;">
-            <a href="user_pending"><h4>PENDING USER COUNT</h4></a>
-            <p><?php if(isset($user_pnd)) echo count($user_pnd); ?></p>
+            <a href="user_pending" ><h4>PENDING USER COUNT</h4></a>
+            <p id="pending_users_count"><?php if(isset($user_pnd)) echo count($user_pnd); ?></p>
           </div>
           
           <div class="col-sm-4 dashboard-two" onclick="location.href='menuitem'"  style="cursor: pointer;">
-            <a href="menuitem"><h4>MENU ITEM COUNT</h4></a>
+            <a href="menuitem" id="menu_item_count"><h4>MENU ITEM COUNT</h4></a>
 			      <p><?php if(isset($menuitem)) echo count($menuitem); ?></p>
           </div> 
           <div class="col-sm-4 dashboard-one"  onclick="location.href='complaints'"  style="cursor: pointer;">
-            <a href="complaints"><h4>COMPLAINTS COUNT</h4></a>
-            <p><?php if(isset($complaints)) echo count($complaints); ?></p>
+            <a href="complaints" ><h4>COMPLAINTS COUNT</h4></a>
+            <p id="complaints_count"><?php if(isset($complaints)) echo count($complaints); ?></p>
           </div>
         </div>
 
@@ -91,6 +91,22 @@
   	<script src="./bootstrap/js/bootstrap.min.js"></script>
   	<!-- <script src="./bootstrap/js/npm.js"></script> -->
   	<script src="./bootstrap/js/js.js"></script>
-
+    <script type="text/javascript">
+      timer = setInterval(function(e){
+          $.ajax({
+            type: 'POST',
+            url: 'get_stats.php?query=dashboard',
+            success: function(data){
+              //console.log(data);
+              var obj = JSON.parse(data);
+              //console.log(obj);
+              $('#user_count').html(obj.total_users);
+              $('#orders_count').html(obj.placed_orders);
+              $('#pending_users_count').html(obj.pending_users);
+              $('#complaints_count').html(obj.complaints);
+            }
+          });
+      }, 3000);
+    </script>
   </body>
   </html>
