@@ -37,12 +37,11 @@
 
          <?php include_once 'primarynavigation.php' ?>
 
-
   			</div>
 
   			<div class="col-md-9 remove-padding">
-  			<div class="first-header right-side-column">
-  				<h4 class="add-margin-left"> <span style="color:#e74c3c; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
+  			<div class="first-header right-side-column ">
+  				<h4 class="add-margin-left"><span style="color:#e74c3c; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
   			</div>
 
 				<!-- banner section -->
@@ -64,7 +63,6 @@
           
         </div>
 
-        <h3 class="color-white add-margin-top text-center">All Users</h3>
 
   			<!-- Add user button -->
   			<div class="row add-margin">
@@ -79,21 +77,20 @@
   			<!-- table section -->
   			<div class="row pad-left">
   				<div class="col-md-12">
-
-  				   <table id="table1" class="table ui celled table-bordered">
+  				   <table id="table1" class="table ui celled">
   				       <thead>
-  				           <tr style="background-color: #1674b3;">
-                                <th>Sr. No</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
-																<th>Address</th>
-																<th>Phone No.</th>
-                                <th>User Type</th>
-                                <th>Account Balance</th>
-                                <th>Borrow Amount</th>
-                                <th >Action</th>
-                            </tr>
-                        </thead>
+  				           <tr">
+                        <th>Sr. No</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+  											<th>Address</th>
+  											<th>Phone No.</th>
+                        <th>User Type</th>
+                        <th>Account Balance</th>
+                        <th>Borrow Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
                         <tbody>
 
@@ -112,8 +109,8 @@
                                     <td><?php if(isset($user->type)) echo $user->type; ?></td>
                                     <td><?php if(isset($user->balance)) echo $user->balance; ?></td>
                                     <td><?php if(isset($user->borrow)) echo $user->borrow; ?></td>
-                                    <td colspan="5">
-                                      <a title="Edit User" href="edituser/<?php if(isset($user->id)) echo $user->id ?>"><span class="glyphicon glyphicon-edit color-white" aria-hidden="true"></span></a>
+                                    <td >
+                                      <a title="Edit User" href="edituser/<?php if(isset($user->id)) echo $user->id ?>"><span class="glyphicon glyphicon-edit color-dark" aria-hidden="true"></span></a>
                                       
                                       <a title="Delete User" href="userdelete/<?php if(isset($user->id)) echo $user->id ?>"><span class="glyphicon glyphicon-trash color-red mDelete" aria-hidden="true"></span></a>
                                       

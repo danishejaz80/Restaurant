@@ -14,7 +14,7 @@
 		$res_pending_users = mysqli_query($link,$qry_pending_users);
 		$pending_users = mysqli_fetch_assoc($res_pending_users);
 
-		$qry_orders_placed = "select count(status) as orders_placed from food_order where status=2";
+		$qry_orders_placed = "select count(status) as orders_placed from food_order ";
 		$res_orders_placed= mysqli_query($link, $qry_orders_placed);
 		$placed_orders= mysqli_fetch_assoc($res_orders_placed);
 		

@@ -29,11 +29,10 @@ class AuthController extends Controller{
     $menu = Menu::all();
     $menuItem = MenuItem::all();
     $orders = Order::all();
-    $pending_orders = Order::where('status', "Order has been placed")->get();
+    $pending_orders = Order::where('status', "1")->get();
     $user_pnd = User::where('status', '0')->get();
     $complaint = Complaint::all();
 
-    
     
     return $this->view->render($response, 'dashboard.php', array('users' => $userDetails, 'menu' => $menu, 'menuitem' => $menuItem, 'order' => $orders, 'pending_order' => $pending_orders,'user_pnd'=>$user_pnd,'complaints' => $complaint));
 	}
@@ -148,7 +147,7 @@ class AuthController extends Controller{
 		}
 
 		$username = $request->getParam('username');
-	  $email = $request->getParam('email');
+	  	$email = $request->getParam('email');
 		$password = $request->getParam('password');
 		$department = $request->getParam('department');
 		$semester = $request->getParam('semester');
@@ -212,13 +211,14 @@ class AuthController extends Controller{
 			return $response->withRedirect($this->router->pathFor('home'));
 		}
 		$id = $args['id'];
-		$user = User::find($id);
+		$user = User::where('id', $id)->first();
 
 		if($request->isGet()){
-			return $this->view->render($response, 'userdelete.php', array('user' => $user->username ));
+			return $this->view->render($response, 'userdelete.php', array('user' => $user));
 		}
+
 		if($request->isPost()){
-			$user->delete();
+			User::where('id', $id)->delete();
 			return $this->view->render($response, 'userdelete.php', array('deleted' => '1'));
 		}
 	}
@@ -267,6 +267,17 @@ class AuthController extends Controller{
 			return $this->view->render($response, 'signin.php', array('status' => array("loggedIn" => 0, "id" => 0, "username" => "", "email" => "", "address" => "", "phone" => "")));
 		}
 	}
+
+	public function genrateReport($request, $response)
+	{
+		if(!$this->auth->check()){
+			return $response->withRedirect($this->router->pathFor('home'));
+		}
+		return $this->view->render($response, 'orderreports.php', array('status' => array("loggedIn" => 0, "id" => 0, "username" => "", "email" => "", "address" => "", "phone" => "")));
+	}
+
+
+
 // Mobile
 	public function registerMobileUser($request, $response){
 

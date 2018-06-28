@@ -40,7 +40,7 @@
   		
         <div class="col-md-9 remove-padding">
         <div class="first-header right-side-column">
-          <h4 class="add-margin-left"><strong class="color-white"></strong> <span style="color:white; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
+          <h4 class="add-margin-left"><strong class="color-white"></strong> <span style="color:red; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
         </div>
 				<!-- banner section -->
         <div class="business-header">  </div>

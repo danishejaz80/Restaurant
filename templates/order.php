@@ -68,15 +68,10 @@
           
         </div>
 
-
-
-
         <!-- Tabulation of the orders -->
         <div class="order-status pad-left para-wrap">
 
         <h3 class="color-white add-margin-top text-center">All Order Request</h3>
-
-
 
         <table id="table1" class="table ui celled table-bordered">
           <thead>
@@ -99,19 +94,19 @@
                    <!-- <td><?php echo $singleOrder->status; ?> </td> -->
                    
                    <td>
-                    <select name="status" onchange=" " class="mform-field form-control" required id="status">
+                    <select name="status" onchange=" " class="mform-field " required id="status">
                       <option value="1" <?php if($singleOrder->status=="1") echo " selected" ?> > 
-                        Order has been placed
+                        In Queue
                       </option> 
                       <option value="2" <?php if($singleOrder->status=="2") echo " selected" ?> >
-                        Order in process
+                        In Process
                       </option> 
                       <option value="3" <?php if($singleOrder->status=="3") echo " selected" ?> >
-                        Order completed
+                        Completed
                       </option> 
                       <option value="0" <?php if($singleOrder->status=="0") echo " selected" ?> >
-                        Order canceled
-                      </option> 
+                        Canceled
+                      </option>
                     </select> 
                    </td>
                    <td><?php echo $singleOrder->order_date; ?> </td>
@@ -120,7 +115,7 @@
                    <td><?php if(isset($singleOrder->get_user($singleOrder->user_id)[0]['username'])) echo $singleOrder->get_user($singleOrder->user_id)[0]['username']; ?></td>
                    <td><?php echo $singleOrder->payment_method; ?></td>
                    <td><?php echo $singleOrder->order_price . " PKR"; ?></td>
-                   <td><a class="color-yellow" href="singleorder/<?php echo $singleOrder->order_id ?>">View Invoice</a></td>
+                   <td><a class="color-dark" href="singleorder/<?php echo $singleOrder->order_id ?>"><span class="color-dark">View Invoice</span></a></td>
                  </tr>
         <?php
              }
@@ -128,8 +123,6 @@
            echo '<h3 class="color-yellow"> You have no order yet. Kindly place an order to experience a taste</h3>';
         }
         ?>
-            
-
           </tbody>
         </table>
 

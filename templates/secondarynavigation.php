@@ -1,10 +1,10 @@
 <?php
-// use App\Models\User;
+use App\Models\User;
 ?>
 
 <div class="logo">
     <p><img class="center-block" alt="Site logo" src="../images/logo.png" /></p>
-    <p class="text-center color-white" style="font-weight: bold;font-size: 20px;">Hi Admin</p>
+    <p class="text-center color-white" style="font-weight: bold;font-size: 20px;"> Hi <?php $id=$_SESSION['user']; $user = User::where('id', $id)->first(); echo $user->username; ?>
 </div>
 
 <nav class="navbar navbar-defaul">
@@ -19,7 +19,7 @@
   <style type="text/css"> li{ border-bottom: 2px #2c3e50 ; }
   </style>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse add-margin-top" id="bs-example-navbar-collapse-1">
       <ul class="nav nav-stacked">
 
         <li role="presentation" class="active second-background">

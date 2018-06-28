@@ -115,4 +115,20 @@ class MobileController extends Controller{
       return $this->view->render($response, 'placeorder.php', array('success' => array('success' => 1)));
   }
 
+
+  public function addComplaintFromMobileUser($request, $response){
+    $user_id = $request->getParam("USER_ID");
+    $title = $request->getParam('TITLE');
+    $message = $request->getParam('MESSAGE');
+
+    $place_complaint = new Complaint(array(
+      'user_id' => $user_id,
+      'name' => $title,
+      'complain' => $message
+    ));
+    ->save();
+    
+    return $this->view->render($response, 'placecomplaint.php', array('success' => array('success' => 1)));
+  }
+
 }

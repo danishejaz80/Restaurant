@@ -87,7 +87,7 @@
                                         <td><?php if(isset($menu->menu_name)) echo $menu->menu_name; ?></td>
                                         <td> <img height="40" width="60" src="<?php if(isset($menu->menu_image))  echo $menu->menu_image;?>" /> </td>
                                         <td>
-                                              <a href="editmenu/<?php if(isset($menu->menu_id)) echo $menu->menu_id ?>"><span class="glyphicon glyphicon-edit color-white" aria-hidden="true"></span></a>
+                                              <a href="editmenu/<?php if(isset($menu->menu_id)) echo $menu->menu_id ?>"><span class="glyphicon glyphicon-edit color-dark" aria-hidden="true"></span></a>
                                               <a href="deletemenu/<?php if(isset($menu->menu_id)) echo $menu->menu_id ?>"><span class="glyphicon glyphicon-trash color-red mDelete" aria-hidden="true"></span></a>
                                               <a title="<?php if($menu->status=='1') echo "Menu available"; else echo "Menu Not Avaliable";  ?>"><span class="<?php if($menu->status=='1') echo "glyphicon glyphicon-ok color-green"; else echo "glyphicon glyphicon-remove color-red";  ?>" aria-hidden="true"></span></a>
                                             </td>
@@ -101,22 +101,23 @@
   		</div>
 
   	</div>
-
-  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--For data table  -->
   	<script src="./bootstrap/datatable/jquery-3.3.1.js"></script>
     <script src="./bootstrap/datatable/semantic.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<!-- Include all compiled plugins (below), or include individual files as needed -->
   	<script src="./bootstrap/js/bootstrap.min.js"></script>
   	<script src="./bootstrap/js/js.js"></script>
+
     <script src="./bootstrap/datatable/jquery.dataTables.min.js"></script>
     <script src="./bootstrap/datatable/dataTables.semanticui.min.js"></script>
 
 
     <script type="text/javascript">
-      $(document).ready(function() {
-      $('#table1').DataTable();
-} );
+        $(document).ready(function() {
+        $('#table1').DataTable();
+        } );
       </script>>
   </body>
   </html>

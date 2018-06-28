@@ -91,7 +91,7 @@
                   <td><?php if(isset($recipe->menuRelationship->menu_name)) echo $recipe->menuRelationship->menu_name; ?></td>
                   <td><?php if(isset($recipe->item_options)) echo $recipe->item_options; else echo "None"; ?></td>
                   <td>
-                    <a href="editmenuitem/<?php if(isset($recipe->menu_item_id)) echo $recipe->menu_item_id ?>"><span class="glyphicon glyphicon-edit color-white" aria-hidden="true"></span></a>
+                    <a href="editmenuitem/<?php if(isset($recipe->menu_item_id)) echo $recipe->menu_item_id ?>"><span class="glyphicon glyphicon-edit color-dark" aria-hidden="true"></span></a>
                     <a href="deletemenuitem/<?php if(isset($recipe->menu_item_id)) echo $recipe->menu_item_id ?>"><span class="glyphicon glyphicon-trash color-red mDelete" aria-hidden="true"></span></a>
                     <a title="<?php if($recipe->status=='1') echo "Menu Available"; else echo "Menu Not Available";  ?>"><span class="<?php if($recipe->status=='1') echo "glyphicon glyphicon-ok color-green"; else echo "glyphicon glyphicon-remove color-red";  ?>" aria-hidden="true"></span></a>
                       </td>

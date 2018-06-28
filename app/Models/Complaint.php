@@ -10,7 +10,7 @@ class Complaint extends Model{
 
   protected $primaryKey = 'complaint_id';
 
-  protected $fillable = ['complaint_id', 'user_id', 'name', 'complain'];
+  protected $fillable = ['user_id', 'name', 'complain'];
 
   public function user($user_id){
   	

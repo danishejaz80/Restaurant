@@ -25,9 +25,9 @@
   <body>
 
   	<div class="container">
-
-
   		<div class="row">
+
+
   			<div class="col-md-3 remove-padding right-side-column">
   			<div class="first-header">
   				<h5 class="text-center color-red"></h5>
@@ -37,24 +37,21 @@
 
   			</div>
 
-
 				<div class="col-md-9 remove-padding">
 					<div class="first-header right-side-column">
-	  				<h4 class="add-margin-left"><strong class="color-white">Admin Section</strong> <span style="color:#e74c3c; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
+	  				<h4 class="add-margin-left"><strong class="color-white"> </strong> <span style="color:#e74c3c; font-size: 14px; float:right;"> <?php $today = date("F j, Y"); echo $today; ?></span></h4>
 	  			</div>
 
 					<!-- banner section -->
 	        <div class="business-header">  </div>
 
 
-  			<!-- Add user details -->
-  			<div class="row pad-left">
-  				<div class="col-md-12 add-margin-top">
-  				   <div class="panel panel-primary first-background">
-                          <div class="panel-body color-white"><strong>Delete user details from database</strong></div>
-                    </div>
-  				</div>
-  			</div>
+  			<!-- Page title -->
+        <div class="row add-margin">
+          <div class="col-md-12">
+            <h3 style="color:white"> Delete user </h3>
+          </div>
+        </div>
 
   			<!-- User deletion -->
 
@@ -64,10 +61,10 @@
           <?php if(isset($user)){ ?>
             <div class="delete-user">
 
-               <h3 class="color-white"> Are you sure you want to delete <strong style="color:#2c3e50;"> <?php echo $user->; ?> </strong> ? from database</h3>
+               <h3 class="color-white"> Are you sure you want to delete <strong style="color:#2c3e50;"> <? php echo $user->username; ?> </strong> ? from database</h3>
 
             <form method="POST" action="">
-              <input type="hidden" name="id" value="<?php if(isset($edit)) echo $edit->id; ?>">
+              <input type="hidden" name="id" value="<?php if(isset($user)) echo $user->id; ?>">
               <button type="submit" class="btn btn-default button-position color-white add-margin-left">Delete user</button>
               <button id="cancel-delete" type="button" class="btn btn-default button-position color-white">Cancel</button>
               <br/><br/>

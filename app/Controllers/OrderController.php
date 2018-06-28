@@ -17,10 +17,10 @@ class OrderController extends Controller{
     }
 
     $order = Order::all();
-    $order_pnd = Order::where('status', "Order has been placed")->get();
-    $order_pro = Order::where('status', "Order in process")->get();
-    $order_cmp = Order::where('status', "Order completed")->get();
-    $order_cnc = Order::where('status', "Order canceled")->get();
+    $order_pnd = Order::where('status', "1")->get();
+    $order_pro = Order::where('status', "2")->get();
+    $order_cmp = Order::where('status', "3")->get();
+    $order_cnc = Order::where('status', "0")->get();
 
     return $this->view->render($response, 'order.php', array('order' => $order, 'order_pnd' => $order_pnd, 'order_pro' => $order_pro, 'order_cmp' => $order_cmp, 'order_cnc' => $order_cnc));
   }
@@ -30,11 +30,11 @@ class OrderController extends Controller{
      return $response->withRedirect($this->router->pathFor('home'));
     }
 
-    $order = Order::where('status', "Order has been placed")->get();
-    $order_pnd = Order::where('status', "Order has been placed")->get();
-    $order_pro = Order::where('status', "Order in process")->get();
-    $order_cmp = Order::where('status', "Order completed")->get();
-    $order_cnc = Order::where('status', "Order canceled")->get();
+    $order = Order::where('status', "1")->get();
+    $order_pnd = Order::where('status', "1")->get();
+    $order_pro = Order::where('status', "2")->get();
+    $order_cmp = Order::where('status', "3")->get();
+    $order_cnc = Order::where('status', "0")->get();
 
     return $this->view->render($response, 'order.php', array('order' => $order, 'order_pnd' => $order_pnd, 'order_pro' => $order_pro, 'order_cmp' => $order_cmp, 'order_cnc' => $order_cnc));
   }
@@ -44,11 +44,11 @@ class OrderController extends Controller{
      return $response->withRedirect($this->router->pathFor('home'));
     }
 
-    $order = Order::where('status', "Order in process")->get();
-    $order_pnd = Order::where('status', "Order has been placed")->get();
-    $order_pro = Order::where('status', "Order in process")->get();
-    $order_cmp = Order::where('status', "Order completed")->get();
-    $order_cnc = Order::where('status', "Order canceled")->get();
+    $order = Order::where('status', "2")->get();
+    $order_pnd = Order::where('status', "1")->get();
+    $order_pro = Order::where('status', "2")->get();
+    $order_cmp = Order::where('status', "3")->get();
+    $order_cnc = Order::where('status', "0")->get();
 
     return $this->view->render($response, 'order.php', array('order' => $order, 'order_pnd' => $order_pnd, 'order_pro' => $order_pro, 'order_cmp' => $order_cmp, 'order_cnc' => $order_cnc));
   }
@@ -58,11 +58,11 @@ class OrderController extends Controller{
      return $response->withRedirect($this->router->pathFor('home'));
     }
 
-    $order = Order::where('status', "Order completed")->get();
-    $order_pnd = Order::where('status', "Order has been placed")->get();
-    $order_pro = Order::where('status', "Order in process")->get();
-    $order_cmp = Order::where('status', "Order completed")->get();
-    $order_cnc = Order::where('status', "Order canceled")->get();
+    $order = Order::where('status', "3")->get();
+    $order_pnd = Order::where('status', "1")->get();
+    $order_pro = Order::where('status', "2")->get();
+    $order_cmp = Order::where('status', "3")->get();
+    $order_cnc = Order::where('status', "0")->get();
 
     return $this->view->render($response, 'order.php', array('order' => $order, 'order_pnd' => $order_pnd, 'order_pro' => $order_pro, 'order_cmp' => $order_cmp, 'order_cnc' => $order_cnc));
   }
